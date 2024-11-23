@@ -1,0 +1,388 @@
+/* Style de base */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Couleur de fond noire */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Section Parallax avec vidéo */
+.parallax {
+    position: relative;
+    height: 100vh; /* Hauteur de la section Parallax */
+    overflow: hidden; /* Empêche le débordement de la vidéo */
+}
+
+#parallax-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que la vidéo couvre toute la section */
+    z-index: -1; /* Place la vidéo en arrière-plan */
+    filter: none !important; /* Assurez-vous de supprimer tout filtre */
+    transition: filter 0.5s ease-in-out;
+}
+
+/* Conteneur pour la page 1 */
+.page1-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: relative; /* Pour placer correctement la section parallax */
+    z-index: 1;
+}
+
+/* Partie gauche et droite */
+.left, .right {
+    width: 30%;
+    padding: 10px;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+    position: relative;
+}
+
+/* Partie centrale */
+.center {
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+/* Style pour les images */
+img {
+    width: 350px;
+    height: 700px;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Effet de réduction des images au survol de la partie gauche */
+.left:hover img {
+    transform: scale(0.8); /* Réduit l'image à 80% de sa taille */
+    filter: brightness(80%); /* Réduit la luminosité lors du survol */
+}
+
+/* Effet de réduction des images au survol de la partie droite */
+.right:hover img {
+    transform: scale(0.8); /* Réduit l'image à 80% de sa taille */
+    filter: brightness(80%); /* Réduit la luminosité lors du survol */
+}
+
+/* Agrandissement de l'image au centre au survol */
+.center:hover img {
+    transform: scale(1.1); /* Agrandit l'image à 110% */
+    filter: brightness(110%); /* Augmente légèrement la luminosité */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Transition fluide */
+}
+
+/* Masque les contrôles de la vidéo */
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+video::-moz-media-controls {
+    display: none !important;
+}
+
+/* Overlay pour activer le son */
+#sound-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    z-index: 1;
+    cursor: pointer; /* Ajout de l'indicateur de clic */
+}
+
+
+#sound-overlay.hidden {
+    display: none; /* Cache l'overlay une fois qu'il est cliqué */
+}
+
+/* Le titre et la flèche en bas */
+.video-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Animation de la flèche */
+.arrow {
+    display: inline-block;
+    margin-left: 10px;
+    animation: bounce 1s infinite;
+}
+
+/* Animation de la flèche qui monte et descend */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Style pour la section d'affiches */
+.chapter-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Cachez les images au départ */
+.chapter-image {
+    opacity: 0;
+    transform: translateY(50px); /* Déplace l'image vers le bas au départ */
+    transition: opacity 1s ease, transform 1s ease; /* Transition pour rendre l'image visible */
+    margin-bottom: 50px; /* Espacement entre les images */
+    position: relative; /* Nécessaire pour positionner le texte */
+}
+
+/* Afficher l'image quand elle entre dans la vue */
+.chapter-image.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.chapter-image img {
+    width: 100%; /* Par défaut, on ajuste à la largeur du conteneur */
+    height: auto; /* Maintient le ratio d'aspect */
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease;
+    cursor: pointer;
+}
+
+/* Styles spécifiques pour la première image de chapitre */
+#chapter1 img {
+    width: 800px; /* Largeur spécifique pour la première image */
+    height: 500px; /* Hauteur spécifique pour la première image */
+}
+
+/* Styles spécifiques pour la deuxième image de chapitre */
+#chapter2 img {
+    width: 800px; /* Largeur spécifique pour la deuxième image */
+    height: 400px; /* Hauteur spécifique pour la deuxième image */
+}
+/* Agrandissement de l'image au survol */
+.chapter-image img:hover {
+    transform: scale(1.1); /* Agrandit l'image */
+    filter: brightness(110%);
+}
+
+/* Style pour le texte du chapitre */
+.chapter-text {
+    opacity: 0; /* Le texte est initialement invisible */
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    width: 90%;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out; /* Transition pour le fondu */
+}
+
+/* Afficher le texte lors du survol avec un effet de fondu */
+.chapter-image:hover .chapter-text {
+    opacity: 1; /* Le texte devient visible */
+}
+
+
+
+
+/* Modal - fond de l'écran */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999; /* Niveau supérieur */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px; /* Augmenter l'espace autour du contenu */
+    overflow-y: auto;
+    cursor: default; /* Curseur par défaut pour toute la fenêtre modale */
+}
+
+/* Contenu du modal */
+.modal-content {
+    background-color: #000;  /* Fond noir pour la modal */
+    margin: 2% auto;  /* Centrer la modal avec un espacement réduit */
+    padding: 30px;  /* Augmenter l'espace interne */
+    border: 1px solid #888;  /* Bordure claire */
+    width: 40%;  /* Largeur de la modal */
+    max-width: 1200px;  /* Limiter la taille maximale */
+    color: #fff;  /* Texte en blanc */
+    position: relative;  /* Nécessaire pour positionner la croix par rapport à ce conteneur */
+}
+
+
+/* Style pour les mots-clés (Drama, Science, Fiction) */
+.keywords {
+    display: flex;  /* Disposer les éléments en ligne */
+    justify-content: space-between;  /* Espacer les mots */
+    font-weight: bold;  /* Mettre les mots en gras */
+    margin-top: 10px;  /* Espacement entre les mots-clés et le reste du contenu */
+}
+
+.keyword {
+    margin: 0 10px;  /* Ajouter un espace entre chaque mot-clé */
+}
+
+
+
+/* Section principale avec image à gauche et contenu à droite */
+.modal-main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px; /* Ajouter plus d'espace entre les colonnes */
+}
+
+/* Section de l'image */
+.modal-left-image {
+    width: 45%; /* Prendre une proportion plus large */
+}
+
+.modal-left-image img {
+    width: 100%;
+    height: 350px;
+    border-radius: 8px;
+    cursor: pointer; /* Curseur en forme de main uniquement sur l'image */
+    transition: transform 0.3s; /* Transition pour l'effet de survol */
+}
+
+.modal-left-image img:hover {
+    transform: scale(1.05); /* Légèrement agrandir l'image au survol */
+}
+
+/* Contenu à droite */
+.modal-right-content {
+    width: 50%; /* Adapter à la largeur totale */
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+/* Liens proches de l'image */
+/* Liens proches de l'image */
+.modal-links {
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement les éléments */
+    margin-bottom: 20px; /* Ajouter de l'espace sous les liens */
+    gap: 15px; /* Espacement entre les liens */
+}
+
+.modal-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    background-color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer; /* Curseur en forme de main pour les liens */
+}
+
+.modal-links a:hover {
+    background-color: #ff8c00;
+}
+
+/* Style de base pour le dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-list {
+    display: none; /* Cacher la liste par défaut */
+    position: absolute;
+    background-color: black; /* Fond noir */
+    color: white; /* Texte blanc */
+    border: 1px solid black; /* Bordure noire */
+    margin-top: 5px; /* Un petit espace au-dessus */
+    list-style: none;
+    padding: 0;
+    z-index: 1000;
+    width: max-content; /* Ajuste la largeur de la liste à son contenu */
+}
+
+.dropdown-list li {
+    padding: 10px 20px; /* Espacement dans chaque élément de la liste */
+}
+
+.dropdown-list li a {
+    text-decoration: none;
+    color: white; /* Texte blanc pour les liens */
+    display: block; /* Pour occuper toute la largeur */
+}
+
+/* Afficher la liste au survol */
+.dropdown:hover .dropdown-list {
+    display: block;
+}
+
+/* Optionnel: Applique un fond gris foncé au survol de chaque élément */
+.dropdown-list li:hover {
+    background-color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Style pour la croix de fermeture */
+.close {
+    position: absolute;  /* Positionner par rapport à .modal-content */
+    top: 10px;  /* Espacement de 10px du haut */
+    right: 10px;  /* Espacement de 10px du côté droit */
+    font-size: 30px;  /* Taille de la croix */
+    color: #fff;  /* Couleur de la croix (blanc) */
+    cursor: pointer;  /* Change le curseur au survol */
+}
+
+/* Effet au survol de la croix */
+.close:hover {
+    color: red;  /* Changer la couleur de la croix au survol */
+}
+
+
+

@@ -1,0 +1,13 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('parallax-video');
+    video.muted = true; // La vidéo commence en sourdine
+    video.play();
+
+    const enableSound = () => {
+        video.muted = false; // Activer le son
+        video.play(); // Redémarrer la vidéo avec le son
+        document.removeEventListener('click', enableSound); // Supprimer l'écouteur
+    };
+
+    document.addEventListener('click', enableSound); // Attend un clic pour activer le son
+});

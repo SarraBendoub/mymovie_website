@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page avec effet parallax et vidéo de présentation du film.">
+    <meta name="keywords" content="parallax, vidéo, film, esthétique, thème, effet, image">
+    <title>Page avec Effet Parallax et Vidéo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Style de base */
+        .hidden {
+            display: none;
+        }
+
+        /* Conteneur principal de la page */
+        .content-section {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Style pour la "petite page" (modale) */
+        .modal {
+            display: none;  /* Cacher par défaut */
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);  /* Fond semi-transparent */
+        }
+
+        .modal-content {
+            background-color: #6a9998;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .close-btn {
+            font-size: 30px;
+            color: #aaa;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Première section avec l'affiche -->
+    <div class="content-section">
+        <h1>Bienvenue sur la page principale</h1>
+        <p>Voici un aperçu du contenu du film Dune. Cliquez sur l'affiche pour découvrir plus.</p>
+        <div class="chapter-image" onclick="openModal()">
+            <img src="images.jpg" alt="Première affiche" />
+            <div class="chapter-text">C'est le premier chapitre du film</div>
+        </div>
+    </div>
+
+    <!-- Fenêtre modale avec informations supplémentaires -->
+    <div id="chapter-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Chapitre 1: Introduction à Dune</h2>
+            <p>Voici des informations supplémentaires sur le premier chapitre du film Dune.</p>
+            <p>Le chapitre 1 introduit les personnages principaux et l'univers de Dune. Il explore les thèmes de pouvoir, de destinée et de survie dans un environnement hostile.</p>
+            <a href="index.html">Retour à la page principale</a>
+        </div>
+    </div>
+
+    <script>
+        /// Fonction pour ouvrir la fenêtre modale automatiquement au chargement de la page
+window.onload = function() {
+    document.getElementById("chapter-modal").style.display = "block";
+};
+
+// Fonction pour fermer la fenêtre modale
+function closeModal() {
+    document.getElementById("chapter-modal").style.display = "none";
+}
+
+    </script>
+
+</body>
+</html>

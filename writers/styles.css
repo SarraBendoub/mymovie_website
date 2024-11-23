@@ -1,0 +1,90 @@
+/* Réinitialisation des marges et du padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0e0d0d;
+    padding: 80px 20px 20px 20px;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    position: relative; /* Nécessaire pour positionner le titre absolu */
+    overflow: hidden;
+}
+
+/* Container avec Grid */
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Crée 4 colonnes égales */
+    gap: 20px; /* Espace entre les colonnes */
+    max-width: 1200px; /* Limite la largeur totale */
+    margin: 0 auto; /* Centre le container horizontalement */
+    width: 100%; /* Permet au container de s'étendre jusqu'à la largeur maximale */
+    
+}
+
+/* Style des colonnes */
+.column {
+    background-color: #333333;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease; /* Transition pour agrandir la colonne */
+    height: 600px;
+}
+
+.column img {
+    width: 250px; /* Largeur fixe de 400px pour toutes les images */
+    height: 350px; /* Hauteur fixe de 300px pour toutes les images */
+    border-radius: 8px;
+    
+}
+
+
+/* Titre en haut à gauche avec animation */
+.title {
+    position: absolute;
+    top: 20px; /* Positionne le titre à 20px du haut */
+    left: 20px; /* Positionne le titre à 20px du côté gauche */
+    font-size: 1em;
+    font-weight: bold;
+    color: #fbf8f8;
+    overflow: hidden; /* Cacher le texte pendant l'animation */
+    white-space: nowrap;
+    width: 0; /* Largeur initiale de 0 pour masquer le texte */
+    animation: slideIn 3s infinite; }
+
+/* Définir l'animation pour le titre */
+@keyframes slideIn {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%; /* Développe le titre pour qu'il soit complètement visible */
+    }
+}
+
+.description {
+    margin-top: 50px;
+    color: white;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Responsive design: pour les écrans plus petits */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr); /* Affiche 2 colonnes sur les petits écrans */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: 1fr; /* Affiche 1 colonne sur les très petits écrans */
+    }
+}

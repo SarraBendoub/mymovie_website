@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page avec effet parallax et vidéo de présentation du film. Découvrez l'esthétique et les thématiques du film à travers une expérience immersive.">
+    <meta name="keywords" content="parallax, vidéo, film, esthétique, thème, effet, image">
+    <title>Mymovie</title>
+    <link rel="icon" type="image/png" href="icon.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+    <!-- Section Parallax avec vidéo -->
+    <div class="parallax">
+        <video autoplay muted loop id="parallax-video">
+            <source src="dune video.mp4" type="video/mp4">
+            Votre navigateur ne prend pas en charge la vidéo.
+        </video>
+        <div id="sound-overlay"></div>
+        <div class="video-caption">
+            <h2>continue to discover <span class="arrow">&#8595;</span></h2>
+        </div>
+    </div>
+
+    <!-- Conteneur principal de la page -->
+    <div class="page1-container">
+        <!-- Partie gauche -->
+        <div class="left">
+            <img src="Dune Movie.jpg" alt="Affiche du film Dune - Thème gauche" />
+        </div>
+        
+        <!-- Partie centrale -->
+        <div class="center">
+            <img src="Dune.jpg" alt="Image du film complet en français - Thème central" />
+        </div>
+        
+        <!-- Partie droite -->
+        <div class="right">
+            <img src="Esthétique Orange dune.jpg" alt="Esthétique orange du film - Thème droit" />
+        </div>
+    </div>
+
+    <!-- Première image avec texte du premier chapitre -->
+<div class="chapter-image" id="chapter1">
+  <img id="chapter1" src="images.jpg" alt="Affiche Chapitre 1" class="chapter-image">
+    <div class="chapter-text">Let's see the first season</div>
+</div>
+
+
+<!-- Modal du Chapitre 1 -->
+<div id="modalChapter1" class="modal">
+    <div class="modal-content">
+        <span id="closeChapter1" class="close">&times;</span>
+
+        <!-- Section des liens en haut du modal -->
+        <div class="modal-links">
+            <div class="dropdown">
+                <a href="#" id="team-link">Team</a>
+                <ul class="dropdown-list">
+                    <li><a id="casts-link1" href="../casts1/index.html">Casts</a></li>
+                    <li><a id="writers-link1" href="../writers/index.html">Writers</a></li>
+                </ul>
+            </div>
+            <a id="awards-link1" href="../awards1/index.html">Awards</a>
+            <a id="crtics-link1" href="../critics1/index.html">Criticism</a>
+            <a id="Info-link1" href="../info1/index.html">Info</a>
+        </div>
+
+        <div class="modal-main-content">
+            <div class="modal-left-image">
+                <img src="premiere affiche1.jpg" alt="Chapitre 1" />
+            </div>
+            <div class="modal-right-content">
+                <h2>Dune chapter one</h2>
+                
+                <div class="keywords">
+                    <div class="keyword">Drama</div>
+                    <div class="keyword">Science </div>
+                    <div class="keyword">Fiction</div>
+                </div>
+                <p>Film-maker: Denis Villeneuve.</p>
+                <p>released on: october 22 2021.</p>
+                <p>duration: 2h 35m</p>
+            </div>
+        </div>
+
+        <!-- Section pour charger le contenu du fichier index.html -->
+        <div id="casts-content"></div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Deuxième image avec texte du deuxième chapitre -->
+<div class="chapter-image" id="chapter2">
+  <img id="chapter1" src="image2.jpg" alt="Affiche Chapitre 1" class="chapter-image">
+    
+    <div class="chapter-text">Let's see the second season</div>
+    
+</div>
+
+
+
+    
+<!-- Modal du Chapitre 2 -->
+<div id="modalChapter2" class="modal">
+    <div class="modal-content">
+         <span id="closeChapter2" class="close">&times;</span>
+
+        <!-- Section des liens en haut du modal -->
+        <div class="modal-links">
+            <div class="dropdown">
+                <a id="team-link2" href="../casts2/index.html">Team</a>
+                <ul class="dropdown-list">
+                    <li><a id="casts-link2" href="../casts2/index.html">Casts</a></li>
+                    <li><a id="writers-link2" href="../writers/index.html">Writers</a></li>
+                </ul>
+            </div>
+            <a id="awards-link2" href="../awards2/index.html">Awards</a>
+            <a id="critics2-link2" href="../critics2/index.html">Criticism</a>
+            <a id="Info-link2" href="../info2/index.html">Info</a>
+        </div>
+
+        <div class="modal-main-content">
+            <div class="modal-left-image">
+                <img src="deuxieme affiche.jpg" alt="Chapitre 2" />
+            </div>
+            <div class="modal-right-content">
+                <h2>Dune chapter two</h2>
+                
+                <div class="keywords">
+                    <div class="keyword">Drama</div>
+                    <div class="keyword">Science </div>
+                    <div class="keyword">Fiction</div>
+                </div>
+                <p>Film-maker: Denis Villeneuve.</p>
+                <p>released on: February 28 2024.</p>
+                <p>duration: 2h 46m</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Overlay de son -->
+    <div id="sound-overlay" class="hidden"></div>
+
+    <script src="script.js" defer></script> <!-- Lien vers JavaScript -->
+</body>
+</html>
